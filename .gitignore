@@ -1,0 +1,7 @@
+build/
+obj_dir/
+*.vcd
+programs/out/
+programs/*.elf
+programs/*.bin
+programs/riscv-tests/
