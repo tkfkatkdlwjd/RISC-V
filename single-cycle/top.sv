@@ -1,9 +1,13 @@
 module top(
-    input clk, rst
+    input clk, rst,
+    output logic test
 );
 logic [31:0] pc, mem_addr, instr, mem_load_data, mem_write_data;
 logic [1:0] mem_byte;
 logic mem_read, mem_write;
+always_ff @(posedge clk) begin
+    test <= ^{pc, mem_addr, mem_write_data, mem_byte, mem_read, mem_write};
+end
 
 single_cycle_core core(
     .clk(clk),.rst(rst),.instr(instr),.mem_load_data(mem_load_data),

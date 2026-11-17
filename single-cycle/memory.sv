@@ -4,7 +4,7 @@ module mem_16k(
     input [1:0] mem_byte,
     input mem_read, mem_write,
     output logic [31:0] i_data, d_data,
-    output miss_addr
+    output logic miss_addr
 );
 import rv32i::*;
 logic [31:0] memory[0:4095] = '{default: 32'd0};
