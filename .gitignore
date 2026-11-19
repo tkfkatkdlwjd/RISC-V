@@ -5,3 +5,6 @@ programs/out/
 programs/*.elf
 programs/*.bin
 programs/riscv-tests/
+**/*.elf
+**/*.bin
+*.dcp

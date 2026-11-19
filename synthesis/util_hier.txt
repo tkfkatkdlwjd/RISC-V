@@ -1,0 +1,36 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
+| Date         : Tue Nov 17 23:06:00 2026
+| Host         : BOOK-9VIQLMIRA5 running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file D:/Desktop/Projects/RISC-V-single-cycle/single-cycle/synthesis/util_hier.txt
+| Design       : top
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Routed
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++---------------------+-------------------+------------+------------+---------+------+-----+--------+--------+------------+
+|       Instance      |       Module      | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | DSP Blocks |
++---------------------+-------------------+------------+------------+---------+------+-----+--------+--------+------------+
+| top                 |             (top) |       6158 |       2018 |    4140 |    0 | 128 |      0 |      0 |          0 |
+|   (top)             |             (top) |          0 |          0 |       0 |    0 |   1 |      0 |      0 |          0 |
+|   core              | single_cycle_core |       1500 |       1456 |      44 |    0 | 127 |      0 |      0 |          0 |
+|     (core)          | single_cycle_core |          0 |          0 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     function_unit   |        funct_unit |          9 |          9 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     program_counter |                PC |       1381 |       1381 |       0 |    0 | 127 |      0 |      0 |          0 |
+|     register_file   |          reg_file |        110 |         66 |      44 |    0 |   0 |      0 |      0 |          0 |
+|   memory            |           mem_16k |       4658 |        562 |    4096 |    0 |   0 |      0 |      0 |          0 |
++---------------------+-------------------+------------+------------+---------+------+-----+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+
