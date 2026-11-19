@@ -9,3 +9,6 @@ riscv-unprivileged.pdf
 rv32i_instructions.xlsx
 rv32i_table.pdf
 single-cycle/plan.txt
+**/*.elf
+**/*.bin
+*.dcp
