@@ -6,14 +6,22 @@ module pipereg_ex(
     input reg_write_E, mem_write_E, mem_read_E, sign_ext_E, branch_E, jump_E, jalr_E, lui_E, ecall_E, ebreak_E, unidentified_E,
     input rs1_forward1_E, rs2_forward1_E, mem1_forward1_E, mem2_forward1_E,
     input sw_data_forward1_E, sw_data_forward2_E,
+    input mret_E, illegal_E,
+    input misaligned_E, mem_misaligned_E, trap_E, no_count_flag_E,
+    input [31:0] mepc_E, mcause_E, mtval_E,
 
     output logic valid_M,
     output logic [31:0] funct_out_M, PC_out_M, imm_M, rs2_data_M,
     output logic [4:0] rd_M,
     output logic [1:0] Mresult_M, mem_byte_M,
     output logic reg_write_M, mem_write_M, mem_read_M, sign_ext_M, branch_M, jump_M, jalr_M, lui_M, ecall_M, ebreak_M, unidentified_M,
-    output logic rs1_forward1_M, rs2_forward1_M, mem1_forward1_M, mem2_forward1_M,
-    output logic sw_data_forward1_M, sw_data_forward2_M
+    (* max_fanout = 16 *) output logic rs1_forward1_M,
+    (* max_fanout = 16 *) output logic rs2_forward1_M,
+    output logic mem1_forward1_M, mem2_forward1_M,
+    output logic sw_data_forward1_M, sw_data_forward2_M,
+    output logic mret_M, illegal_M,
+    output logic misaligned_M, mem_misaligned_M, trap_M, no_count_flag_M,
+    output logic [31:0] mepc_M, mcause_M, mtval_M
 );
 
 always_ff @(posedge clk) begin
@@ -35,6 +43,12 @@ always_ff @(posedge clk) begin
         mem2_forward1_M <= 0;
         sw_data_forward1_M <= 0;
         sw_data_forward2_M <= 0;
+        mret_M <= 0;
+        illegal_M <= 0;
+        misaligned_M <= 0;
+        mem_misaligned_M <= 0;
+        trap_M <= 0;
+        no_count_flag_M <= 0;
     end
     else if (!stall) begin
         valid_M <= valid_E;
@@ -62,6 +76,15 @@ always_ff @(posedge clk) begin
         mem2_forward1_M <= mem2_forward1_E;
         sw_data_forward1_M <= sw_data_forward1_E;
         sw_data_forward2_M <= sw_data_forward2_E;
+        mret_M <= mret_E;
+        illegal_M <= illegal_E;
+        misaligned_M <= misaligned_E;
+        mem_misaligned_M <= mem_misaligned_E;
+        trap_M <= valid_E && (trap_E || misaligned_E || illegal_E);
+        no_count_flag_M <= no_count_flag_E;
+        mepc_M <= mepc_E;
+        mcause_M <= mcause_E;
+        mtval_M <= mtval_E;
     end
 end
 endmodule

@@ -8,7 +8,7 @@ logic [31:0] expected;
 
 funct_unit dut(
     .in1(in1),.in2(in2),.funct_op(funct_op),
-    .funct_out(funct_out)
+    .alu_out(funct_out)
 );
 
 integer err = 0;

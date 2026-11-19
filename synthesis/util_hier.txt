@@ -1,14 +1,14 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
--------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Wed Nov 18 23:21:21 2026
+| Date         : Thu Nov 19 23:25:14 2026
 | Host         : BOOK-9VIQLMIRA5 running 64-bit major release  (build 9200)
-| Command      : report_utilization -hierarchical -file D:/Desktop/Projects/RISC-V-pipeline-v2.0.1/pipelined/synthesis/util_hier.txt
+| Command      : report_utilization -hierarchical -file D:/Desktop/Projects/RISC-V/pipelined/synthesis/util_hier.txt
 | Design       : top
 | Device       : xc7a35tcpg236-1
 | Speed File   : -1
 | Design State : Routed
--------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
 
 Utilization Design Information
 
@@ -19,22 +19,26 @@ Table of Contents
 1. Utilization by Hierarchy
 ---------------------------
 
-+---------------------+----------------+------------+------------+---------+------+-----+--------+--------+------------+
-|       Instance      |     Module     | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | DSP Blocks |
-+---------------------+----------------+------------+------------+---------+------+-----+--------+--------+------------+
-| top                 |          (top) |       6111 |       1971 |    4140 |    0 | 914 |      0 |      0 |          0 |
-|   (top)             |          (top) |          0 |          0 |       0 |    0 |   1 |      0 |      0 |          0 |
-|   core              | pipelined_core |       1431 |       1387 |      44 |    0 | 913 |      0 |      0 |          0 |
-|     (core)          | pipelined_core |          0 |          0 |       0 |    0 |  32 |      0 |      0 |          0 |
-|     ex_mem          |     pipereg_ex |        274 |        274 |       0 |    0 | 377 |      0 |      0 |          0 |
-|     function_unit   |     funct_unit |          0 |          0 |       0 |    0 |   0 |      0 |      0 |          0 |
-|     id_ex           |     pipereg_id |        438 |        438 |       0 |    0 | 152 |      0 |      0 |          0 |
-|     if_id           |     pipereg_if |        174 |        174 |       0 |    0 |  64 |      0 |      0 |          0 |
-|     mem_wb          |    pipereg_mem |        494 |        494 |       0 |    0 | 142 |      0 |      0 |          0 |
-|     program_counter |             PC |          7 |          7 |       0 |    0 | 146 |      0 |      0 |          0 |
-|     register_file   |       reg_file |         44 |          0 |      44 |    0 |   0 |      0 |      0 |          0 |
-|   memory_16k        |         memory |       4680 |        584 |    4096 |    0 |   0 |      0 |      0 |          0 |
-+---------------------+----------------+------------+------------+---------+------+-----+--------+--------+------------+
++----------------------+----------------+------------+------------+---------+------+------+--------+--------+------------+
+|       Instance       |     Module     | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++----------------------+----------------+------------+------------+---------+------+------+--------+--------+------------+
+| top                  |          (top) |       7278 |       3138 |    4140 |    0 | 1637 |      0 |      0 |          0 |
+|   (top)              |          (top) |          0 |          0 |       0 |    0 |    1 |      0 |      0 |          0 |
+|   core               | pipelined_core |       2598 |       2554 |      44 |    0 | 1636 |      0 |      0 |          0 |
+|     (core)           | pipelined_core |          1 |          1 |       0 |    0 |   32 |      0 |      0 |          0 |
+|     csr_file         |       csr_file |          0 |          0 |       0 |    0 |  291 |      0 |      0 |          0 |
+|     div_function     |        divider |        191 |        191 |       0 |    0 |  140 |      0 |      0 |          0 |
+|     ex_mem           |     pipereg_ex |        404 |        404 |       0 |    0 |  427 |      0 |      0 |          0 |
+|     id_ex            |     pipereg_id |        577 |        577 |       0 |    0 |  185 |      0 |      0 |          0 |
+|     if_id            |     pipereg_if |        163 |        163 |       0 |    0 |   65 |      0 |      0 |          0 |
+|     mem_wb           |    pipereg_mem |       1063 |       1063 |       0 |    0 |  231 |      0 |      0 |          0 |
+|     mul_function     |     multiplier |        151 |        151 |       0 |    0 |  174 |      0 |      0 |          0 |
+|       (mul_function) |     multiplier |          9 |          9 |       0 |    0 |    2 |      0 |      0 |          0 |
+|       mul_execution  |        mul_exe |        142 |        142 |       0 |    0 |  172 |      0 |      0 |          0 |
+|     program_counter  |             PC |          8 |          8 |       0 |    0 |   91 |      0 |      0 |          0 |
+|     register_file    |       reg_file |         44 |          0 |      44 |    0 |    0 |      0 |      0 |          0 |
+|   memory_16k         |         memory |       4680 |        584 |    4096 |    0 |    0 |      0 |      0 |          0 |
++----------------------+----------------+------------+------------+---------+------+------+--------+--------+------------+
 * Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
 
 

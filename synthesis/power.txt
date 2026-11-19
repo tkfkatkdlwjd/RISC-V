@@ -1,16 +1,16 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
--------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date             : Wed Nov 18 23:21:26 2026
+| Date             : Thu Nov 19 23:25:18 2026
 | Host             : BOOK-9VIQLMIRA5 running 64-bit major release  (build 9200)
-| Command          : report_power -file D:/Desktop/Projects/RISC-V-pipeline-v2.0.1/pipelined/synthesis/power.txt
+| Command          : report_power -file D:/Desktop/Projects/RISC-V/pipelined/synthesis/power.txt
 | Design           : top
 | Device           : xc7a35tcpg236-1
 | Design State     : routed
 | Grade            : commercial
 | Process          : typical
 | Characterization : Production
--------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
 
 Power Report
 
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.099        |
+| Total On-Chip Power (W)  | 0.089        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.029        |
+| Dynamic (W)              | 0.019        |
 | Device Static (W)        | 0.070        |
 | Effective TJA (C/W)      | 5.0          |
-| Max Ambient (C)          | 84.5         |
-| Junction Temperature (C) | 25.5         |
+| Max Ambient (C)          | 84.6         |
+| Junction Temperature (C) | 25.4         |
 | Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,18 +52,18 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.011 |        3 |       --- |             --- |
-| Slice Logic              |    <0.001 |     9669 |       --- |             --- |
-|   LUT as Logic           |    <0.001 |     2126 |     20800 |           10.22 |
-|   Register               |    <0.001 |      914 |     41600 |            2.20 |
-|   CARRY4                 |    <0.001 |       70 |      8150 |            0.86 |
+| Clocks                   |     0.015 |        3 |       --- |             --- |
+| Slice Logic              |     0.002 |    11725 |       --- |             --- |
+|   LUT as Logic           |     0.002 |     3268 |     20800 |           15.71 |
+|   CARRY4                 |    <0.001 |      161 |      8150 |            1.98 |
+|   Register               |    <0.001 |     1637 |     41600 |            3.94 |
 |   LUT as Distributed RAM |    <0.001 |     4140 |      9600 |           43.13 |
-|   F7/F8 Muxes            |    <0.001 |     2332 |     32600 |            7.15 |
-|   Others                 |     0.000 |       14 |       --- |             --- |
-| Signals                  |     0.016 |     4625 |       --- |             --- |
+|   F7/F8 Muxes            |    <0.001 |     2329 |     32600 |            7.14 |
+|   Others                 |     0.000 |       21 |       --- |             --- |
+| Signals                  |     0.003 |     6343 |       --- |             --- |
 | I/O                      |    <0.001 |        3 |       106 |            2.83 |
 | Static Power             |     0.070 |          |           |                 |
-| Total                    |     0.099 |          |           |                 |
+| Total                    |     0.089 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.038 |       0.028 |      0.010 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.029 |       0.019 |      0.010 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -129,7 +129,7 @@ Table of Contents
 +-------+--------+-----------------+
 | Clock | Domain | Constraint (ns) |
 +-------+--------+-----------------+
-| clk   | clk    |            13.3 |
+| clk   | clk    |            11.3 |
 +-------+--------+-----------------+
 
 
@@ -142,10 +142,14 @@ Table of Contents
 +---------------------+-----------+
 | Name                | Power (W) |
 +---------------------+-----------+
-| top                 |     0.029 |
-|   core              |     0.018 |
-|     program_counter |     0.016 |
-|   memory_16k        |     0.009 |
+| top                 |     0.019 |
+|   core              |     0.009 |
+|     csr_file        |     0.001 |
+|     div_function    |     0.002 |
+|     ex_mem          |     0.002 |
+|     mul_function    |     0.002 |
+|       mul_execution |     0.002 |
+|   memory_16k        |     0.010 |
 +---------------------+-----------+
 
 
